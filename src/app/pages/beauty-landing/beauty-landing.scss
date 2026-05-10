@@ -91,7 +91,7 @@
   border: 1px solid var(--antique-gold);
   text-decoration: none;
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -150,7 +150,7 @@
   font-family: 'Cinzel', serif;
   text-transform: uppercase;
   letter-spacing: 5px;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--antique-gold);
   margin-bottom: 20px;
@@ -207,7 +207,7 @@ h2 {
 
 .welcome-section .section-label {
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 6px;
   color: var(--antique-gold);
@@ -483,7 +483,7 @@ li {
 .approach-note .section-label,
 .approach-cta-card .section-label {
   font-family: 'Cinzel', serif;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 5px;
   color: var(--antique-gold);
@@ -696,7 +696,7 @@ li {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 80%;
 
   display: block;
   filter: saturate(0.88) contrast(0.95);
@@ -752,7 +752,7 @@ li {
 
 .pillars-carousel-side .section-label {
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 6px;
   color: var(--antique-gold);
@@ -926,56 +926,131 @@ li {
   background: var(--gold-light);
 }
 
-/* RESPONSIVE */
+/* =========================================
+   PILLARS SECTION - MOBILE STACK FIX
+========================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
+  .pillars-section {
+    padding: 0;
+    overflow: hidden;
+    background: var(--ivory);
+  }
+
   .pillars-split-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .pillars-preview {
-    min-height: 70vh;
-  }
-
-  .pillars-carousel-side {
+    display: flex;
+    flex-direction: column;
     min-height: auto;
-    padding: 90px 6% 100px;
   }
 
-  .pillar-carousel {
-    height: 540px;
-    margin-top: 54px;
+  /* SELECTED IMAGE ON TOP */
+  .pillars-preview {
+    width: 100%;
+    height: 420px;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .pillar-slide-card {
-    width: min(360px, 88vw);
-    min-height: 380px;
-  }
-
-  .pillar-card-content {
-    min-height: 380px;
-    padding: 38px 32px;
-  }
-
-  .pillar-slide-card.previous {
-    transform: translate(-72%, -38%) scale(0.78) rotate(-2deg);
-    opacity: 0.28;
-  }
-
-  .pillar-slide-card.next {
-    transform: translate(-28%, -62%) scale(0.78) rotate(2deg);
-    opacity: 0.28;
+  .pillars-preview img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .pillars-preview-text {
-    left: 32px;
-    bottom: 38px;
+    left: 28px;
+    bottom: 32px;
   }
 
   .pillars-preview-text h3 {
-    font-size: 64px;
+    font-size: 52px;
+  }
+
+  /* CONTENT BELOW IMAGE */
+  .pillars-carousel-side {
+    width: 100%;
+    min-height: auto;
+    padding: 72px 24px 90px;
+    background: var(--ivory);
+    overflow: hidden;
+  }
+
+  .pillars-subtitle {
+    width: 100%;
+    max-width: 100%;
+    font-size: 42px;
+    line-height: 1.05;
+    margin: 0;
+    color: var(--deep-obsidian);
+  }
+
+  /* CAROUSEL BELOW TITLE */
+  .pillar-carousel {
+    width: 100%;
+    height: 360px;
+    margin-top: 46px;
+    position: relative;
+    overflow: visible;
+  }
+
+  .pillar-slide-card {
+    width: 280px;
+    height: 300px;
+    min-height: unset;
+    top: 50%;
+    left: 50%;
+  }
+
+  .pillar-card-content {
+    height: 100%;
+    padding: 24px;
+  }
+
+  .pillar-slide-card.active {
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 5;
+    opacity: 1;
+  }
+
+  .pillar-slide-card.previous {
+    transform: translate(-83%, -50%) scale(0.72) rotate(-2deg);
+    z-index: 2;
+    opacity: 0.32;
+  }
+
+  .pillar-slide-card.next {
+    transform: translate(-17%, -50%) scale(0.72) rotate(2deg);
+    z-index: 2;
+    opacity: 0.32;
+  }
+
+  .pillar-slide-card span {
+    margin-bottom: 14px;
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .pillar-slide-card h3 {
+    font-size: 29px;
+    margin-bottom: 12px;
+  }
+
+  .pillar-slide-card p {
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+
+  .pillar-slide-card.active::after {
+    left: 24px;
+    bottom: 22px;
+    width: 40px;
   }
 }
+
 /* =========================================
    EXPERIENCE EDITORIAL SECTION
 ========================================= */
@@ -1026,7 +1101,7 @@ li {
 
 .experience-heading-row .section-label {
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 6px;
   color: var(--antique-gold);
@@ -1139,7 +1214,7 @@ li {
   display: block;
   margin-bottom: 14px;
   font-family: 'Cinzel', serif;
-  font-size: 10px;
+  font-size: 15px;
   letter-spacing: 4px;
   color: var(--antique-gold);
   text-transform: uppercase;
@@ -1156,39 +1231,131 @@ li {
 
 /* Mobile */
 
-@media (max-width: 950px) {
+/* WHY JOY CREATED THIS - MOBILE FIX */
+/* =========================================
+   EXPERIENCE EDITORIAL - MOBILE FIX
+========================================= */
+
+@media (max-width: 768px) {
   .experience-editorial-section {
-    padding: 90px 6% 100px;
+    padding: 88px 24px 100px;
+    background: var(--ivory);
+    overflow: hidden;
   }
 
-  .experience-heading-row,
-  .experience-main-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
+  .experience-editorial-section::before {
+    font-size: 92px;
+    right: auto;
+    left: -20px;
+    top: 80px;
+    opacity: 0.55;
+  }
+
+  .experience-editorial-container {
+    width: 100%;
+    max-width: 100%;
   }
 
   .experience-heading-row {
-    margin-bottom: 50px;
+    display: block;
+    margin-bottom: 48px;
+  }
+
+  .experience-heading-row .section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 22px;
   }
 
   .experience-heading-row h2 {
+    max-width: 100%;
     font-size: 48px;
+    line-height: 1.02;
+    margin-bottom: 28px;
+  }
+
+  .experience-intro {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .experience-main-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 42px;
+  }
+
+  /* IMAGE AREA */
+  .experience-image-wrap {
+    width: 100%;
+    position: relative;
   }
 
   .experience-image-card {
-    height: 520px;
-    margin-left: 0;
+    width: 100%;
+    height: 480px;
+    margin: 0;
+    padding: 18px;
+    background: var(--stone);
+  }
+
+  .experience-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .experience-caption {
     position: relative;
     left: auto;
     bottom: auto;
+    width: calc(100% - 32px);
+    margin: -70px auto 0;
+    padding: 28px;
+    background: var(--blush-rose);
+    z-index: 3;
+  }
+
+  .experience-caption span {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--barn-red);
+  }
+
+  .experience-caption p {
+    font-size: 30px;
+    line-height: 1.08;
+  }
+
+  /* LIST AREA */
+  .experience-list {
     width: 100%;
-    margin-top: 22px;
+    border-top: 1px solid rgba(61, 56, 48, 0.24);
+  }
+
+  .experience-item {
+    grid-template-columns: 44px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+  }
+
+  .experience-item:hover {
+    padding-left: 0;
+  }
+
+  .experience-item span {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .experience-item p {
+    font-size: 15px;
+    line-height: 1.55;
   }
 }
-
 .experience-section {
   background: var(--smoke);
 }
@@ -1258,7 +1425,7 @@ li {
 
 .about-joy-content .section-label {
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 6px;
   color: var(--antique-gold);
@@ -1340,7 +1507,7 @@ li {
 
 .testimonials-heading .section-label {
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 6px;
   color: var(--antique-gold);
@@ -1592,65 +1759,117 @@ li {
   }
 }   
 
-/* FOOTER */
+/* =========================================
+   FOOTER - DESKTOP EDGE ALIGNMENT
+========================================= */
 
 .footer {
+  width: 100%;
+  padding: 56px 2%;
   background: var(--deep-obsidian);
-  padding: 42px 0;
-  border-top: 1px solid rgba(212, 185, 138, 0.24);
+  border-top: none;
 }
 
 .footer-content {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
 }
 
 .footer h3 {
-  margin: 0 0 8px;
-  color: var(--ivory);
+  margin: 0 0 10px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 400;
   letter-spacing: 3px;
+  line-height: 1;
+  color: var(--ivory);
+  text-transform: none;
 }
 
 .footer p {
   margin: 0;
-  color: rgba(250, 248, 243, 0.65);
+  font-family: 'Jost', sans-serif;
   font-size: 14px;
+  font-weight: 300;
+  color: rgba(250, 248, 243, 0.78);
 }
 
-.footer-links {
+.footer .header-logo-mark {
   display: flex;
-  gap: 26px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.footer-links a {
-  color: var(--gold-light);
-  text-decoration: none;
-  font-family: 'Cinzel', serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+.footer .header-logo-mark img {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
 }
 
-.footer-links a:hover {
-  color: var(--ivory);
-}
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 22px 34px;
+    background: var(--deep-obsidian);
+  }
 
-@media (max-width: 700px) {
   .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .footer h3 {
+    margin: 0 0 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 2px;
+    color: var(--ivory);
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  .footer p {
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.3;
+    color: rgba(250, 248, 243, 0.78);
+    white-space: nowrap;
   }
 
   .footer-links {
-    gap: 18px;
+    display: none;
   }
-}   
+
+  .footer .header-logo-mark {
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+
+  .footer .header-logo-mark img {
+    height: 42px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    display: block;
+  }
+}
 
 /* =========================================
    CREDENTIALS STAIR SECTION
@@ -1702,7 +1921,7 @@ li {
 
 .credentials-stair-content .section-label {
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 6px;
   color: var(--antique-gold);
@@ -1879,4 +2098,77 @@ li {
   width: auto;
   display: block;
   object-fit: contain;
+}
+
+/* =========================================
+   WHY JOY CREATED THIS WORK - MOBILE FIX
+========================================= */
+
+@media (max-width: 768px) {
+  .experience-section {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    background: var(--ivory);
+  }
+
+  .experience-section .container.two-column {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .experience-section .image-box {
+    width: 100%;
+    height: 360px;
+    min-height: 0;
+    margin: 0;
+    border: none;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .experience-section .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .experience-section .container.two-column > div:last-child {
+    width: 100%;
+    max-width: 100%;
+    padding: 58px 24px 72px;
+    overflow: hidden;
+  }
+
+  .experience-section .section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    white-space: normal;
+  }
+
+  .experience-section h2 {
+    width: 100%;
+    max-width: 100%;
+    font-size: 40px;
+    line-height: 1.08;
+    margin: 0 0 28px;
+    overflow-wrap: break-word;
+  }
+
+  .experience-section p {
+    width: 100%;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+  }
 }
