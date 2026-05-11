@@ -11,3 +11,16 @@ body {
 * {
   box-sizing: border-box;
 }
+
+img {
+  max-width: 100%;
+}
+
+.about-joy-image img,
+.experience-image-card img,
+.credentials-stair-image img,
+.pillars-preview img,
+.collage-image img,
+.experience-section .image-box img {
+  filter: saturate(0.88) contrast(0.94) brightness(1.03);
+}
